@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopify_dohan/common/theme/theme_config.dart';
+import 'package:shopify_dohan/config/global_variable.dart';
+import 'package:shopify_dohan/src/bottom_nav/bottom_nav_screen.dart';
 import 'package:shopify_dohan/src/products/bloc/product_bloc.dart';
-import 'package:shopify_dohan/src/products/view/product_category_list.dart';
+// import 'package:shopify_dohan/src/products/view/product_category_list.dart';
 import 'package:shopify_flutter/shopify_config.dart';
 
 void main() {
@@ -27,12 +30,13 @@ class MyApp extends StatelessWidget {
         ),
       child: MaterialApp(
         title: 'Dohans Qatar',
+        navigatorKey: GlobalVariable.navigatorState,
+        scaffoldMessengerKey: GlobalVariable.scaffoldMessengerKey,
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const ProductCategoryListScreen(),
+        theme: lightTheme(),
+        darkTheme: darkTheme(),
+        themeMode: ThemeMode.system,
+        home: const BottomNavScreen(),
       ),
     );
   }
