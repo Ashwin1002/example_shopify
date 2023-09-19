@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopify_dohan/common/theme/theme_config.dart';
 import 'package:shopify_dohan/config/global_variable.dart';
-import 'package:shopify_dohan/src/bottom_nav/bottom_nav_screen.dart';
 import 'package:shopify_dohan/src/products/bloc/product_bloc.dart';
+import 'package:shopify_dohan/src/splash/view/splash_screen.dart';
 // import 'package:shopify_dohan/src/products/view/product_category_list.dart';
 import 'package:shopify_flutter/shopify_config.dart';
 
@@ -20,24 +20,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => ProductBloc()
-        ..add(
-          const FetchProductCategoriesEvent(),
-        ),
-      child: MaterialApp(
-        title: 'Dohans Qatar',
-        navigatorKey: GlobalVariable.navigatorState,
-        scaffoldMessengerKey: GlobalVariable.scaffoldMessengerKey,
-        debugShowCheckedModeBanner: false,
-        theme: lightTheme(),
-        darkTheme: darkTheme(),
-        themeMode: ThemeMode.system,
-        home: const BottomNavScreen(),
-      ),
+    return MaterialApp(
+      title: 'Dohans Qatar',
+      navigatorKey: GlobalVariable.navigatorState,
+      scaffoldMessengerKey: GlobalVariable.scaffoldMessengerKey,
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme(),
+      darkTheme: darkTheme(),
+      themeMode: ThemeMode.system,
+      home: const SplashScreen(),
     );
   }
 }
